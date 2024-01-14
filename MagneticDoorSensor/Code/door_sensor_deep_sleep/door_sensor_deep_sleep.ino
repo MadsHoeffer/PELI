@@ -68,7 +68,7 @@ void setup() {
   // Serial.print("Message: ");
 
   mqttClient.beginMessage(PubTopic);
-  if (pin_state) {
+  if (!pin_state) {
     // Serial.println("Door Closed");
     mqttClient.print("Door Closed");
   }
