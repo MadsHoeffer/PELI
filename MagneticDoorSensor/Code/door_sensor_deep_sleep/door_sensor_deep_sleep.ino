@@ -6,19 +6,20 @@
 #define SENSOR_PIN A2
 
 // WiFi crendentials
-const char* ssid                = "Team4";
-const char* password            = "12345678";   
+const char* ssid                = "****";
+const char* password            = "****";   
 
 // MQTT broker address
-const char  mqtt_broker[]       = "team4.wlan";
+const char  mqtt_broker[]       = "****";
 int         mqtt_port           = 1883;
 
 // MQTT credentials
-const char  mqtt_username[]     = "Team4";
-const char  mqtt_pwd[]          = "Team4";
+const char  mqtt_username[]     = "****";
+const char  mqtt_pwd[]          = "****";
 
 // MQTT topics
-const char  PubTopic[]          = "/door_sensor";
+const char  DoorTopic[]          = "/door_sensor";
+const char VoltageTopic[] = "/door_sensor/battery_voltage";
 
 int pin_state;
 
@@ -67,7 +68,7 @@ void setup() {
   // Serial.println("Publishing on /door_sensor topic");
   // Serial.print("Message: ");
 
-  mqttClient.beginMessage(PubTopic);
+  mqttClient.beginMessage(DoorTopic);
   if (!pin_state) {
     // Serial.println("Door Closed");
     mqttClient.print("Door Closed");
@@ -76,6 +77,12 @@ void setup() {
     // Serial.println("Door Open");
     mqttClient.print("Door Open");
   }
+  mqttClient.endMessage();
+  delay(500);
+
+  // Publish current battery voltage
+  mqttClient.beginMessage(VoltageTopic);
+  mqttClient.print("3.754");
   mqttClient.endMessage();
   delay(500);
   // Serial.println("");

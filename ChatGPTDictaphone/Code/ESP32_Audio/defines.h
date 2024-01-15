@@ -1,23 +1,23 @@
 #define Button 21
 #define LED 33
 // RPI TEAM4:
-const char* ssid ="Team4";
-const char* password = "12345678";
+const char* ssid ="****";
+const char* password = "****";
 WiFiClient wifiClient;
 
-const char* udpAddress = "team4.wlan";
-const int udpPort = 44444;
+const char* udpAddress = "****";
+const int udpPort = ****;
 WiFiUDP udp;
 
 PubSubClient client(wifiClient);
 
 // RPI team4:
-const char* mqttBroker = "team4.wlan";  //PC
-const char* mqttUser = "Team4";      // MQTT User Authentification
-const char* mqttPass = "Team4";  // MQTT Password Authentification
+const char* mqttBroker = "****";  //PC
+const char* mqttUser = "****";      // MQTT User Authentification
+const char* mqttPass = "****";  // MQTT Password Authentification
 
 
-const char* mqttClientName = "esp32";
+const char* mqttClientName = "****";
 const char* audio_alert = "audio/alert";
 
 // Audio defines
